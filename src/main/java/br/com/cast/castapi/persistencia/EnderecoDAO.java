@@ -1,11 +1,11 @@
-package br.com.cast.projgson.persistencia;
+package br.com.cast.castapi.persistencia;
 
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.com.cast.projgson.entidade.Endereco;
+import br.com.cast.castapi.entidade.Endereco;
 
 
 public class EnderecoDAO {

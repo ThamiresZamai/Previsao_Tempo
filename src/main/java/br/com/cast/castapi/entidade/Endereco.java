@@ -1,4 +1,4 @@
-package br.com.cast.projgson.entidade;
+package br.com.cast.castapi.entidade;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

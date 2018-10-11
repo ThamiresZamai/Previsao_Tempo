@@ -1,4 +1,4 @@
-package br.com.cast.projgson.persistencia;
+package br.com.cast.castapi.persistencia;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.cast.projgson.entidade.Pessoa;
+import br.com.cast.castapi.entidade.Pessoa;
 
 @Repository
 public class PessoaDAO {
@@ -22,8 +22,8 @@ public class PessoaDAO {
 	}*/
 	
 	
-	public void inserir(Pessoa pessoa) {
-			em.persist(pessoa);
+	public void inserir(Pessoa pessoa) {		
+		em.persist(pessoa);
 	}
 	
 	public Pessoa buscarPorCPF(String cpf) {
@@ -31,25 +31,11 @@ public class PessoaDAO {
 	}
 	
 	public void alterar(Pessoa pessoa) {
-		em.getTransaction().begin();
-		try {
-			em.merge(pessoa);
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			em.getTransaction().rollback();
-			throw new RuntimeException(e);
-		}
+		em.merge(pessoa);
 	}
 	
 	public void excluir(Pessoa pessoa) {
-		em.getTransaction().begin();
-		try {
-			em.remove(pessoa);
-			em.getTransaction().commit();
-		} catch (Exception e) {
-			em.getTransaction().rollback();
-			throw new RuntimeException(e);
-		}
+		 em.remove(pessoa);
 	}
 	
 	@SuppressWarnings("unchecked")

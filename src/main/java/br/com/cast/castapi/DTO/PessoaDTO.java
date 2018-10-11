@@ -1,4 +1,4 @@
-package br.com.cast.projgson.DTO;
+package br.com.cast.castapi.DTO;
 
 public class PessoaDTO {
 
