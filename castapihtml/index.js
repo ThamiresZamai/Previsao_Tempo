@@ -172,6 +172,31 @@ $(function() {
         event.preventDefault();
 
 	});
+
+	$('#btn-tempo').click(function(){
+		window.location.href = "/tempo.html";
+	});
 	
+	$('#btn-buscar').click(function (event) {
 	
+		$('#mostratempo').text("");
+		
+        $.ajax({
+            url: 'http://api.openweathermap.org/data/2.5/weather?q='+ $('#cidade').val() +',br&appid=2a1ed974a4e86642a69ac57828175631',
+            method: 'GET',
+            success: function (data) {
+				
+				$('#mostratempo').append('</br></br><span>Tempo Maximo: '+ data.main.temp_max +'</span></br>')
+								 .append('<span>Tempo Minimo: '+ data.main.temp_min +'</span></br>')
+								 .append('<span>Descrição: '+ data.weather[0].description +'</span></br>')
+								 .append('<span>Umidadde: '+ data.main.humidity +'</span></br>')			
+
+            },error(x,y,z){
+				alert(z);
+			}
+        });
+        
+        event.preventDefault();
+
+	});
 })
